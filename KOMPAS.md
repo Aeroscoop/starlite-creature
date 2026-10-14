@@ -1,35 +1,30 @@
-# Kompas
+# Kompas van Starlite
 
-Dit bestand beschrijft waar dit project heen gaat. Lees het als eerste.
+Dit bestand beschrijft waar Starlite heen gaat. Lees het als eerste.
 
 ## Waarom
-Nieuwe apps gestructureerd, efficiënt, mooi en werkend maken.
-Zonder telkens opnieuw te beginnen, zonder het overzicht te verliezen,
-en met wat eerdere apps hebben geleerd.
+Een virtueel huisdiertje met het gevoel van een jaren-90-gadget (pixels, drie knoppen,
+piepjes), maar soepel en modern.
 
 ## Voor wie
-- Voor Melroy: om helder te houden waar dit heen gaat.
-- Voor de agents: als eerste instructie, vóór elke andere regel.
-- Voor de gebruikers van de apps (Melroy of anderen): het moet eenvoudig blijven.
+- Melroy, en iedereen die de link heeft.
+- Op pc en telefoon, in de browser.
 
-## Wat dit project is
-Een template-repo waar elke nieuwe app mee start, en later ook Glio.
-Erin: KOMPAS.md, PRINCIPES.md, een vragenlijst per app, vaste bestanden
-en afspraken, en beveiliging vanaf het begin.
+## Wat het wel is
+Eén wezentje, Starlite, met meters voor honger, humeur, energie, netheid en gezondheid.
+Acties: eten, spelen, slapen, opruimen, medicijn. De tijd loopt door, ook als de pagina
+dicht is. De stand blijft bewaard in de browser. Online via GitHub Pages.
 
-## Wat het nu niet is
-- Glio zelf
-- Updaten en onderhoud van apps
-- Een eigen systeem voor testen en deployen; bestaande tools doen dat
+Het wezentje vraagt een paar keer per dag aandacht en blijft een week leuk.
+Wordt het lang verwaarloosd, dan wordt het ziek; een medicijn helpt.
+
+## Wat het niet is
+- Geen accounts, geen server, geen meldingen, geen meerdere wezentjes.
+- Nu nog niet: doodgaan, munten en ziekenhuis (zie issue met label `later`).
+- Geen merknaam of figuur van het originele speelgoed. Het wezentje is een eigen ontwerp.
 
 ## Goed als
-- Een nieuwe app start vanuit de template en de vragenlijst, niet vanaf nul.
-- Agents werken volgens de principes zonder dat Melroy het steeds uitlegt.
-- Een les uit één app komt via een vast moment bij de volgende.
-
-Wens, geen harde eis: Melroy weet waar hij staat (welke repo, welke branch,
-wie waaraan werkt).
-
-## Let op in een nieuwe app
-Vervang dit bestand door het kompas van die app: waarom, voor wie, wat wel,
-wat niet, en wanneer het goed is. De vragenlijst (VRAGENLIJST.md) helpt daarbij.
+- Het voelt als een gadget: een klein scherm in een behuizing, drie knoppen, korte piepjes.
+- Het werkt even goed met tikken op de telefoon als met toetsen op de pc.
+- Alle spelregels zijn te testen en alle snelheden staan op één plek.
+- Er verlaat niets de browser: geen data naar buiten, geen code of lettertypes van andere sites.

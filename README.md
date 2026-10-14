@@ -1,23 +1,31 @@
-# template-repo
+# Starlite
 
-Het fundament waar elke nieuwe app mee start (en later Glio). Een nieuwe app begint niet vanaf nul.
+Een virtueel huisdiertje met het gevoel van een jaren-90-gadget: pixels, drie knoppen en
+(straks) piepjes, maar soepel en modern. Het draait gewoon in de browser, op pc en telefoon.
+Geen account, geen server: alles blijft in jouw browser.
 
-## Gebruik
-1. Klik op **Use this template** op GitHub en maak een nieuwe (privé) repo.
-2. Open de repo in Claude Code en typ een gewoon bericht met "start project" en de handoff (met de ingevulde vragenlijst) eronder. Dat werkt het best, want een slash-commando accepteert geen opmaak. Mag ook: `/start @handoff.md`, met de handoff als bestand. Zonder ingevulde vragenlijst stopt de agent. Daarna richt de agent de repo in. De stappen staan in `AGENTS.md`, sectie "Start project".
+Starlite wordt hongerig, ook als de pagina dicht is. Geef hem te eten, en kom een paar keer
+per dag terug.
 
-## Een PR testen
-PR's testen gaat met `test-pr` uit de repo `workspace-repo` (`Aeroscoop/workspace-repo`). Daar staat ook `setup`, dat een computer klaarzet. Hoe je ze gebruikt, staat in de README van die repo. Een app hoeft alleen een `dev.txt` te hebben; dat bestand staat in deze template.
+## Spelen
+Online via GitHub Pages: https://aeroscoop.github.io/starlite/
+(werkt pas nadat GitHub Pages is aangezet, zie `STATUS.md`).
+
+Op de telefoon: tik op de knoppen. Op de pc kan ook met het toetsenbord:
+spatie = kies, enter = ok, escape = terug.
+
+## Zelf draaien
+Open `app/index.html` in je browser. Er is niets te installeren.
+De tests draai je met `node --test` (Node 22 of nieuwer).
 
 ## Bestanden
-- `KOMPAS.md`: waar dit project heen gaat; eerste instructie voor mens en agent.
-- `PRINCIPES.md`: vaste principes voor elke app.
-- `VRAGENLIJST.md`: invullijst die de start van een app vormt.
-- `AGENTS.md`: werkregels voor AI-agents.
-- `CLAUDE.md`: laadt `AGENTS.md`, `KOMPAS.md` en `PRINCIPES.md` in Claude Code.
-- `.claude/commands/start.md`: maakt `/start` mogelijk in Claude Code; verwijst naar `AGENTS.md`.
-- `dev.txt`: hoe je de app test en start, per platform. In de template is dat een kleine controle of de vaste bestanden er zijn.
-- `LESSEN.md`: lessen uit eerdere projecten.
-- `.gitignore`: sluit geheimen (`.env`, behalve `.env.example`), OS-bestanden en editormappen uit. Stack-neutraal; een nieuwe app vult hem aan.
-- `.github/workflows/gitleaks.yml`: zoekt bij elke push en PR naar geheimen in de code.
-- `.github/dependabot.yml`: houdt GitHub Actions up-to-date.
+- `app/`: de app zelf (wat online komt).
+- `test/`: tests op de spelregels.
+- `KOMPAS.md`, `PRINCIPES.md`: waar dit project heen gaat en de vaste principes.
+- `AGENTS.md`: werkregels voor AI-agents, inclusief Code, Testen en Apparaten.
+- `BESLUITEN.md`: genomen besluiten, met datum.
+- `STATUS.md`: wat er bezig is, wat getest moet worden, wat daarna komt.
+- `LESSEN.md`: lessen die ook voor volgende projecten gelden.
+- `VRAGENLIJST.md`: de ingevulde start-vragenlijst.
+- `dev.txt`: hoe de app wordt getest en gestart (gebruikt door `test-pr`).
+- `.github/workflows/`: `test.yml` (tests), `pages.yml` (online zetten), `gitleaks.yml` (geheimen zoeken).

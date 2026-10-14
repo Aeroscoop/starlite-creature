@@ -1,0 +1,168 @@
+/* Kleuren op één plek. Licht en donker volgen de instelling van het apparaat. */
+:root {
+  --pagina: #e9eef5;
+  --tekst: #1f2937;
+  --tekst-zacht: #5b6676;
+  --schaal-a: #ff7eb6;
+  --schaal-b: #c04b86;
+  --schaal-rand: #8f2f61;
+  --knop: #ffd23f;
+  --knop-rand: #b8901a;
+  --knop-tekst: #4a3b06;
+  --lcd: #dff3e4;
+  --lcd-rand: #20304a;
+  --lcd-tekst: #20304a;
+  --lcd-aan: #20304a;
+  --lcd-uit: #b7cfbd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pagina: #12161f;
+    --tekst: #e6e9ef;
+    --tekst-zacht: #98a2b3;
+    --schaal-a: #9d5cff;
+    --schaal-b: #5a2fb3;
+    --schaal-rand: #3b1f7a;
+    --knop: #ffc83a;
+    --knop-rand: #8a6a10;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: var(--pagina);
+  color: var(--tekst);
+  font-family: ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, monospace;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.behuizing {
+  width: min(380px, 100%);
+  padding: 28px 24px 24px;
+  border-radius: 48% 48% 44% 44% / 38% 38% 30% 30%;
+  background: linear-gradient(160deg, var(--schaal-a), var(--schaal-b));
+  border: 4px solid var(--schaal-rand);
+  box-shadow: 0 14px 30px rgb(0 0 0 / 0.25), inset 0 3px 0 rgb(255 255 255 / 0.35);
+  text-align: center;
+}
+
+.rand {
+  background: #2a2f3a;
+  padding: 14px;
+  border-radius: 16px;
+  box-shadow: inset 0 3px 8px rgb(0 0 0 / 0.5);
+  margin-top: 14px;
+}
+
+.scherm {
+  background: var(--lcd);
+  color: var(--lcd-tekst);
+  border: 3px solid var(--lcd-rand);
+  border-radius: 6px;
+  padding: 10px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 6px;
+  position: relative;
+}
+
+.meters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.meter { display: inline-flex; gap: 3px; }
+.meter i { width: 14px; height: 14px; background: var(--lcd-uit); border: 2px solid var(--lcd-aan); display: block; }
+.meter i.vol { background: var(--lcd-aan); }
+
+.podium { display: grid; place-items: center; min-height: 0; }
+
+.wezen {
+  height: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+  image-rendering: pixelated;
+  animation: wip 1.2s steps(1) infinite;
+}
+
+@keyframes wip {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wezen { animation: none; }
+}
+
+.bericht { margin: 0; font-size: 0.8rem; min-height: 2.4em; line-height: 1.2; }
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.menu[hidden] { display: none; }
+
+.menu-item {
+  font: inherit;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  background: var(--lcd);
+  color: var(--lcd-tekst);
+  border: 2px solid var(--lcd-aan);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.menu-item.gekozen { background: var(--lcd-aan); color: var(--lcd); }
+.menu-item:disabled { opacity: 0.45; cursor: default; }
+
+.knoppen {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.knop {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 4px;
+  cursor: pointer;
+  color: #fff;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  min-width: 56px;
+  min-height: 56px;
+}
+.stip {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--knop);
+  border: 3px solid var(--knop-rand);
+  box-shadow: 0 4px 0 var(--knop-rand);
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+.knop:active .stip { transform: translateY(3px); box-shadow: 0 1px 0 var(--knop-rand); }
+.knop-tekst { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; text-shadow: 0 1px 2px rgb(0 0 0 / 0.5); }
+.knop:focus-visible { outline: 3px solid #fff; outline-offset: 2px; border-radius: 10px; }
+
+.tip { margin: 16px 0 0; font-size: 0.7rem; color: #fff; opacity: 0.85; text-shadow: 0 1px 2px rgb(0 0 0 / 0.5); }
+
+@media (hover: none) { .tip { display: none; } }

@@ -10,5 +10,5 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Stack-specifiek (node_modules/, build-mappen, *.exe, ...):
-# voegt "Start project" toe voor de gekozen stack.
+# Stack (gewone HTML/CSS/JS met Node-tests)
+node_modules/

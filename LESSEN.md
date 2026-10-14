@@ -52,3 +52,7 @@ Bijgewerkt op 2026-10-14 (Orchestrator).
 5. `docs/LESSEN.md` kopiëren en doornemen voor universele richtlijnen.
 6. Testframework inrichten en unit tests toevoegen vanaf de eerste functie.
 7. Eerste issue uitvoeren: de kleinste haalbare proof-of-concept op elk beoogd platform.
+
+## Bij web-apps zonder bouwstap
+- **Geen JavaScript-modules als de pagina ook direct als bestand moet werken.** `file://` laadt geen modules. Gebruik gewone scripts met een kleine kop bovenaan (`module.exports` in Node, een naam op `window` in de browser), dan werken dezelfde bestanden in de pagina én in `node --test`. (Starlite, 2026-10) (kandidaat template)
+- **Test een geladen stand met een init-script, niet erna.** Een pagina die bij sluiten opslaat overschrijft handmatig aangepaste opslag bij herladen. (Starlite, 2026-10)
