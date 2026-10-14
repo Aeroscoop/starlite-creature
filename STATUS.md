@@ -15,4 +15,4 @@
 - Kleine dingen: issue 6. Ideeën voor later: issue 7.
 
 ## Klaar
-- Start en proef (PR 8): wezentje, honger, eten, bewaren, tests, Pages. Gemerged, getest op aeropc en online (14-10-2026).
+- Start en proef (PR 8): wezentje, honger, eten, bewaren, tests, Pages. Gemerged, getest op aeropc, Pages staat aan en de deploy is geslaagd (14-10-2026).
