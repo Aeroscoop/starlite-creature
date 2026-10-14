@@ -1,0 +1,9 @@
+# Dependabot houdt afhankelijkheden up-to-date via automatische PR's.
+# De template heeft nog geen packages, dus alleen GitHub Actions.
+# Een app voegt zijn eigen ecosysteem toe, bijvoorbeeld "npm" of "gomod".
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
