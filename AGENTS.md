@@ -103,15 +103,22 @@ Waar gewerkt wordt, bepaalt wat er kan. Per app invullen, uit de handoff. Ontbre
 
 | Apparaat | Waar | Netwerk / diensten | Geschikt voor |
 |---|---|---|---|
-| | | | |
+| aeropc | Windows 11 | Gewoon internet | Testen in de browser |
 
 ## Code
-Per app invullen.
+- Gewone HTML, CSS en JavaScript. Geen framework, geen bouwstap, geen modules (`file://` laadt die niet). Zie `BESLUITEN.md`.
+- `app/` is wat online komt. `test/` bevat de Node-tests.
+- Spelregels: alleen pure functies in `app/js/regels.js`. Geen klok erin; tijd komt als invoer.
+- Alle snelheden en grenzen: alleen in `app/js/constanten.js`.
+- Scherm (`scherm.js`, `main.js`) bevat geen spelregels. Opslag (`opslag.js`) altijd met try/catch.
+- Niets laden van andere sites: geen scripts, lettertypes of afbeeldingen. De pagina heeft een Content Security Policy die dat ook afdwingt.
+- Elk bestand in `app/js/` heeft bovenaan de kleine kop waardoor het in de browser én in Node werkt. Nieuw bestand? Kopieer die kop.
+- De naam van het originele speelgoed gebruiken we nergens.
 
 ## Testen
-Per app invullen.
-
-- Alleen Wails-apps: op Linux heb je `libgtk-3-dev` en `libwebkit2gtk-4.1-dev` nodig (`sudo apt install`). Bouw en test met tag `webkit2_41`, bijv. `go test -tags webkit2_41 ./...`.
+- Logica: `node --test` (Node 22 of nieuwer). Zelfde commando in `dev.txt` en in `.github/workflows/test.yml`.
+- Scherm: open `app/index.html` in de browser (`start_windows` in `dev.txt`). Controleer licht en donker, en smal (telefoon) en breed.
+- Elke nieuwe spelregel krijgt een test, inclusief lange afwezigheid.
 
 ## Documentatie
 Elk bestand heeft één taak en elk feit staat op één plek. Staat iets al ergens, verwijs er dan naar in plaats van het te herhalen.

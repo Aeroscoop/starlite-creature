@@ -1,7 +1,9 @@
 # Hoe test en start je deze app? Eén regel per commando, vorm: naam=commando.
 # Lege waarde = die stap wordt overgeslagen. Regels met # zijn uitleg.
-# Template: alleen een controle of de vaste bestanden er zijn. Een nieuwe app vervangt deze regel door de echte test.
-test_linux=test -f KOMPAS.md -a -f PRINCIPES.md -a -f AGENTS.md -a -f VRAGENLIJST.md -a -f README.md -a -f LESSEN.md
-test_windows=
-start_linux=
-start_windows=
+# Test: de Node-tests op de spelregels (zelfde commando als in .github/workflows/test.yml).
+# Start: opent de pagina in de standaardbrowser. De pagina gebruikt geen modules,
+# dus direct openen (file://) werkt, zonder server of extra installatie.
+test_linux=node --test
+test_windows=node --test
+start_linux=xdg-open app/index.html
+start_windows=cmd /c start "" app\index.html

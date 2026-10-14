@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <title>Starlite</title>
+  <link rel="stylesheet" href="stijl.css">
+</head>
+<body>
+  <main class="behuizing" aria-label="Starlite">
+    <div class="rand">
+      <div class="scherm" id="scherm">
+        <div class="meters" aria-label="Meters">
+          <span class="meter-naam">Honger</span>
+          <span class="meter" id="meter-honger" role="img" aria-label="Honger"></span>
+        </div>
+        <div class="podium">
+          <canvas class="wezen" id="wezen" width="16" height="16" role="img" aria-label="Starlite"></canvas>
+        </div>
+        <p class="bericht" id="bericht" aria-live="polite"></p>
+        <ul class="menu" id="menu" hidden></ul>
+      </div>
+    </div>
+    <div class="knoppen">
+      <button type="button" class="knop" id="knop-kies" aria-label="Kiezen"><span class="stip"></span><span class="knop-tekst">kies</span></button>
+      <button type="button" class="knop" id="knop-ok" aria-label="Bevestigen"><span class="stip"></span><span class="knop-tekst">ok</span></button>
+      <button type="button" class="knop" id="knop-terug" aria-label="Terug"><span class="stip"></span><span class="knop-tekst">terug</span></button>
+    </div>
+    <p class="tip">Toetsen: spatie, enter, escape</p>
+  </main>
+
+  <script src="js/constanten.js"></script>
+  <script src="js/regels.js"></script>
+  <script src="js/opslag.js"></script>
+  <script src="js/plaatjes.js"></script>
+  <script src="js/scherm.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
