@@ -22,8 +22,14 @@ const kapotteOpslag = {
 
 test('bewaren en terugzetten geeft dezelfde stand', () => {
   const o = nepOpslag();
-  assert.equal(O.bewaar(o, { honger: 33 }, 1000), true);
-  assert.deepEqual(O.laad(o), { toestand: { honger: 33 }, opgeslagenOp: 1000 });
+  assert.equal(O.bewaar(o, { honger: 33, humeur: 44 }, 1000), true);
+  assert.deepEqual(O.laad(o), { toestand: { honger: 33, humeur: 44 }, opgeslagenOp: 1000 });
+});
+
+test('oude opslag zonder humeur (van de proef) laadt zonder fout', () => {
+  const o = nepOpslag();
+  o.setItem(C.OPSLAG_SLEUTEL, JSON.stringify({ v: 1, toestand: { honger: 55 }, opgeslagenOp: 5 }));
+  assert.deepEqual(O.laad(o), { toestand: { honger: 55, humeur: C.START_HUMEUR }, opgeslagenOp: 5 });
 });
 
 test('niets bewaard: laad geeft null', () => {

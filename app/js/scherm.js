@@ -9,20 +9,32 @@
     tevreden: 'Starlite voelt zich fijn.',
     hongerig: 'Starlite heeft honger.',
     'erg-hongerig': 'Starlite rammelt van de honger!',
+    verdrietig: 'Starlite is verdrietig.',
   };
 
-  const ACTIES = [{ id: 'eten', label: 'Eten' }];
+  // De acties in het menu. Een nieuwe actie? Zet hem hier bij, en zet de regel in regels.js.
+  const ACTIES = [
+    { id: 'eten', label: 'Eten', gezicht: 'eten', gelukt: 'Mmm, lekker!', mislukt: 'Starlite is al vol.' },
+    { id: 'spelen', label: 'Spelen', gezicht: 'spelen', gelukt: 'Hoera, een spelletje!', mislukt: 'Starlite heeft genoeg gespeeld.' },
+  ];
+
+  const METERS = [
+    { id: 'meter-honger', naam: 'Honger', max: C.HONGER_MAX, omgekeerd: true },  // laag = goed
+    { id: 'meter-humeur', naam: 'Humeur', max: C.HUMEUR_MAX, omgekeerd: false }, // hoog = goed
+  ];
+  const VAKJES = 5;
 
   function maakScherm(doc) {
     const doek = doc.getElementById('wezen');
     const pen = doek.getContext('2d');
-    const meterHonger = doc.getElementById('meter-honger');
     const bericht = doc.getElementById('bericht');
     const menu = doc.getElementById('menu');
     let gezichtNu = null;
 
-    const VAKJES = 5;
-    for (let i = 0; i < VAKJES; i++) meterHonger.appendChild(doc.createElement('i'));
+    METERS.forEach((m) => {
+      m.el = doc.getElementById(m.id);
+      for (let i = 0; i < VAKJES; i++) m.el.appendChild(doc.createElement('i'));
+    });
 
     function teken(gezicht) {
       if (gezicht === gezichtNu) return;
@@ -37,11 +49,15 @@
       });
     }
 
-    // Meter: vol = goed. Honger 0 geeft 5 vakjes, honger 100 geeft 0.
-    function toonHonger(honger) {
-      const gevuld = Math.ceil(((C.HONGER_MAX - honger) / C.HONGER_MAX) * VAKJES);
-      [...meterHonger.children].forEach((v, i) => v.classList.toggle('vol', i < gevuld));
-      meterHonger.setAttribute('aria-label', 'Honger: ' + gevuld + ' van ' + VAKJES + ' vol');
+    // Meters: vol = goed. Honger 0 geeft 5 vakjes, honger 100 geeft 0. Bij humeur andersom.
+    function toonMeters(toestand) {
+      METERS.forEach((m) => {
+        const waarde = toestand[m.naam.toLowerCase()];
+        const goed = m.omgekeerd ? m.max - waarde : waarde;
+        const gevuld = Math.ceil((goed / m.max) * VAKJES);
+        [...m.el.children].forEach((v, i) => v.classList.toggle('vol', i < gevuld));
+        m.el.setAttribute('aria-label', m.naam + ': ' + gevuld + ' van ' + VAKJES + (m.omgekeerd ? ' vol' : ''));
+      });
     }
 
     function toonMenu(open, gekozen, kanActie, bijKlik) {
@@ -65,7 +81,7 @@
       bericht.textContent = tekst;
     }
 
-    return { teken, toonHonger, toonMenu, toonBericht, ACTIES, TEKSTEN };
+    return { teken, toonMeters, toonMenu, toonBericht };
   }
 
   S.scherm = { maakScherm, ACTIES, TEKSTEN };

@@ -20,6 +20,10 @@ Eén regel per besluit, met datum. Een vervallen besluit wordt vervangen en gema
 - 2026-10-14: Publicatie via GitHub Pages met een Actions-workflow die alleen de map `app/` publiceert.
 
 ## Functies
+- 2026-10-14: Humeur loopt van 0 (verdrietig) tot 100 (superblij). Het zakt altijd langzaam (4 per uur) en sneller zolang Starlite hongerig is (6 per uur extra). Dat is exact uit te rekenen, ook na lange afwezigheid.
+- 2026-10-14: Spelen geeft +25 humeur en +8 honger. Vanaf humeur 90 wil hij even niet spelen. Eten verandert het humeur niet.
+- 2026-10-14: Gezicht: honger gaat voor verdriet (een hongerig wezentje is niet echt vrolijk). Verdrietig vanaf humeur 30 of lager.
+- 2026-10-14: Oude opslag zonder humeur blijft werken; het humeur begint dan op de startwaarde.
 - 2026-10-14: Proef: wezentje, behuizing, drie knoppen (kies, ok, terug), honger en eten. Rest staat in issues.
 - 2026-10-14: Bediening: kies opent het menu en gaat naar de volgende keuze, ok bevestigt, terug sluit het menu. Op de telefoon kun je ook gewoon op een menu-item tikken. Toetsenbord: spatie, enter, escape.
 - 2026-10-14: Licht en donker volgen de instelling van het apparaat. Het "scherm" blijft licht, zoals een echt gadget.

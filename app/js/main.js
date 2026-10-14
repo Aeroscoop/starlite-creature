@@ -32,8 +32,8 @@
     const stemming = R.stemming(toestand);
     const gezicht = tijdelijkGezicht && t < tijdelijkTot ? tijdelijkGezicht : stemming;
     scherm.teken(gezicht);
-    scherm.toonHonger(toestand.honger);
-    scherm.toonBericht(melding && t < meldingTot ? melding : scherm.TEKSTEN[stemming]);
+    scherm.toonMeters(toestand);
+    scherm.toonBericht(melding && t < meldingTot ? melding : S.scherm.TEKSTEN[stemming]);
     scherm.toonMenu(menuOpen, gekozen, (id) => R.kan(toestand, id), kiesMetKlik);
   }
 
@@ -46,13 +46,13 @@
   // --- De drie knoppen.
   function kies() {
     if (!menuOpen) { menuOpen = true; gekozen = 0; }
-    else gekozen = (gekozen + 1) % scherm.ACTIES.length;
+    else gekozen = (gekozen + 1) % S.scherm.ACTIES.length;
     tekenAlles();
   }
 
   function bevestig() {
     if (!menuOpen) { menuOpen = true; tekenAlles(); return; }
-    doeActie(scherm.ACTIES[gekozen].id);
+    doeActie(S.scherm.ACTIES[gekozen].id);
   }
 
   function terug() {
@@ -62,26 +62,26 @@
 
   function kiesMetKlik(i) {
     gekozen = i;
-    doeActie(scherm.ACTIES[i].id);
+    doeActie(S.scherm.ACTIES[i].id);
   }
 
   function doeActie(id) {
     laatTijdVerstrijken();
     const t = Date.now();
+    const actie = S.scherm.ACTIES.find((a) => a.id === id);
     if (R.kan(toestand, id)) {
       toestand = R.pasToe(toestand, id);
-      tijdelijkGezicht = id;
-      tijdelijkTot = t + C.ETEN_ANIMATIE_MS;
-      melding = 'Mmm, lekker!';
-      meldingTot = t + C.ETEN_ANIMATIE_MS;
+      tijdelijkGezicht = actie.gezicht;
+      tijdelijkTot = t + C.ACTIE_TOON_MS;
+      melding = actie.gelukt;
       bewaar();
     } else {
-      melding = 'Starlite is al vol.';
-      meldingTot = t + C.ETEN_ANIMATIE_MS;
+      melding = actie.mislukt;
     }
+    meldingTot = t + C.ACTIE_TOON_MS;
     menuOpen = false;
     tekenAlles();
-    setTimeout(tekenAlles, C.ETEN_ANIMATIE_MS + 50);
+    setTimeout(tekenAlles, C.ACTIE_TOON_MS + 50);
   }
 
   document.getElementById('knop-kies').addEventListener('click', kies);
