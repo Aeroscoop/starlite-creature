@@ -26,11 +26,21 @@
     ETEN_EFFECT: 40,        // zoveel punten gaat de honger omlaag bij een maaltijd
     VOL_TOT: 10,            // is de honger zo laag of lager, dan wil hij niet meer eten
 
+    // Humeur: 0 = heel verdrietig, 100 = superblij. Zakt langzaam, en sneller bij honger.
+    HUMEUR_MAX: 100,
+    START_HUMEUR: 70,
+    HUMEUR_PER_UUR: 4,          // zoveel zakt het humeur per uur, altijd
+    HUMEUR_HONGER_PER_UUR: 6,   // extra daling per uur zolang hij hongerig is (HONGRIG_VANAF)
+    VERDRIETIG_TOT: 30,         // met dit humeur of lager kijkt hij verdrietig
+    SPELEN_HUMEUR: 25,          // zoveel punten gaat het humeur omhoog bij spelen
+    SPELEN_HONGER: 8,           // en zoveel honger krijgt hij ervan
+    GENOEG_GESPEELD_VANAF: 90,  // is het humeur zo hoog of hoger, dan wil hij even niet spelen
+
     // Langer dan dit tellen we een afwezigheid niet mee. Honger zit dan toch al aan zijn maximum.
     MAX_AFWEZIG_UUR: 24 * 30,
 
     TIK_MS: 1000,           // hoe vaak het scherm de tijd bijwerkt
-    ETEN_ANIMATIE_MS: 1600, // hoe lang het eten-plaatje blijft staan
+    ACTIE_TOON_MS: 1600,    // hoe lang het plaatje en de tekst van een actie blijven staan
 
     OPSLAG_SLEUTEL: 'starlite.v1',
   });

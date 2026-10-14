@@ -44,7 +44,7 @@
     try {
       opslag.setItem(
         C.OPSLAG_SLEUTEL,
-        JSON.stringify({ v: 1, toestand: { honger: toestand.honger }, opgeslagenOp: nu })
+        JSON.stringify({ v: 1, toestand: { honger: toestand.honger, humeur: toestand.humeur }, opgeslagenOp: nu })
       );
       return true;
     } catch (e) {

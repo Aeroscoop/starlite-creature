@@ -73,7 +73,9 @@ body {
   position: relative;
 }
 
-.meters {
+.meters { display: grid; gap: 4px; }
+
+.meter-rij {
   display: flex;
   align-items: center;
   justify-content: space-between;
