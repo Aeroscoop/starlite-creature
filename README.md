@@ -9,7 +9,7 @@ per dag terug.
 
 ## Spelen
 Online via GitHub Pages: https://aeroscoop.github.io/starlite/
-(werkt pas nadat GitHub Pages is aangezet, zie `STATUS.md`).
+
 
 Op de telefoon: tik op de knoppen. Op de pc kan ook met het toetsenbord:
 spatie = kies, enter = ok, escape = terug.
